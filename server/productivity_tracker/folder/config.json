@@ -1,0 +1,13 @@
+{
+  "status": {
+    "active": "active",
+    "inactive": "inactive",
+    "values": [
+      "active", "inactive"
+    ]
+  },
+  "folderCategories": {
+    "tech": "tech",
+    "values": []
+  }
+}

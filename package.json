@@ -1,0 +1,34 @@
+{
+  "name": "work_productivity_tracker_be",
+  "version": "1.0.0",
+  "description": "Work Productivity Tracker app that helps users manage their daily tasks, set goals, and track their progress over time. The app will have features for daily updates, upcoming tasks, and setting target completion dates for tasks.",
+  "main": "app.js",
+  "scripts": {
+    "dev:start": "nodemon app.js",
+    "prod:start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayushbatwada/work_productivity_tracker_BE.git"
+  },
+  "keywords": [
+    "task_tracker",
+    "daily_updates",
+    "progress_tracker"
+  ],
+  "author": "Ayush kumar Batwara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayushbatwada/work_productivity_tracker_BE/issues"
+  },
+  "homepage": "https://github.com/Ayushbatwada/work_productivity_tracker_BE#readme",
+  "dependencies": {
+    "async": "^3.2.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^6.12.8",
+    "mongoose-paginate-v2": "^1.8.3",
+    "nodemon": "^3.1.4"
+  }
+}
