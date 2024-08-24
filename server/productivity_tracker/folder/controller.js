@@ -1,3 +1,5 @@
+'use strict'
+
 const folderService = require('./service');
 const taskService = require('../task/service');
 const responseData = require('../../utils/responseData');

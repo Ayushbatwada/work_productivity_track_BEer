@@ -1,3 +1,5 @@
+'use strict'
+
 const taskModel = require('./model');
 const responseData = require('../../utils/responseData');
 const sanityChecks  = require('../../utils/sanityChecks');

@@ -1,5 +1,9 @@
-const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate-v2");
+'use strict'
+
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+const UserSchema = require('../userModel');
+const dailyUpdatesConfig = require('./config.json');
 
 const updatesSchema = new mongoose.Schema({
     description: {
@@ -10,11 +14,16 @@ const updatesSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    status: {
+        type: String,
+        default: dailyUpdatesConfig.status.active
+    },
     createdBy: {
-        type: Object
+        type: UserSchema,
+        required: true
     },
     updatedBy: {
-        type: Object
+        type: UserSchema
     }
 },{
     timestamps: true

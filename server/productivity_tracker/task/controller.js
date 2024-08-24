@@ -1,6 +1,7 @@
+'use strict'
+
 const taskService = require('./service');
 const responseData = require('../../utils/responseData');
-const sanityChecks  = require('../../utils/sanityChecks');
 
 module.exports = {
     createTask: (req, res) => {

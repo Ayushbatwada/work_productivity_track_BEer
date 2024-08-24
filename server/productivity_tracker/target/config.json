@@ -1,0 +1,10 @@
+{
+  "status": {
+    "assigned": "assigned",
+    "paused": "paused",
+    "delayed": "delayed",
+    "completed": "completed",
+    "deleted": "deleted",
+    "values": ["assigned", "paused", "delayed" ,"completed", "deleted"]
+  }
+}

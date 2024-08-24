@@ -1,3 +1,5 @@
+'use strict'
+
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const folderConfig = require('./config.json');
