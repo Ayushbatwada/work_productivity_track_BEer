@@ -3,7 +3,7 @@ const {createServer} = require("http");
 const os = require("os");
 const path = require("path");
 const cluster = require('cluster');
-const port = process.env.PORT || 8200;
+const port = process.env.PORT || 8400;
 
 require('./config/global');
 require('./config/db');
