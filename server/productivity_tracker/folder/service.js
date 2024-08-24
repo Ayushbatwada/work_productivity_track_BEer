@@ -1,9 +1,7 @@
 const folderModel = require('./model');
-const taskModel = require('./../task/model');
 const responseData = require('../../utils/responseData');
 const sanityChecks  = require('../../utils/sanityChecks');
 const folderConfig = require('./config.json');
-const {isValidArray} = require("../../utils/sanityChecks");
 
 module.exports = {
     // Folder
@@ -62,7 +60,7 @@ module.exports = {
         try {
             const filterQuery = {
                 _id: folderId,
-                status: folderId.status.active
+                status: folderConfig.status.active
             };
             const updateQuery = {
                 $inc: {taskCount: taskCountFactor}
@@ -115,7 +113,7 @@ module.exports = {
                     console.log('ERROR ::: found in "getAllFolders" service error block with err: ' + err);
                     response = new responseData.serverError();
                     callback(null, response);
-                } else if (isValidArray(dbResp.data)) {
+                } else if (sanityChecks.isValidArray(dbResp.data)) {
                     response = new responseData.successMessage();
                     response = {...response, ...dbResp};
                     callback(null, response);
@@ -149,7 +147,7 @@ module.exports = {
                 status: folderConfig.status.active
             }
             const updateQuery = {
-                status: folderConfig.status.inactive
+                status: folderConfig.status.deleted
             }
             folderModel.findOneAndUpdate(filterQuery, updateQuery, (err, dbResp) => {
                 if (err) {

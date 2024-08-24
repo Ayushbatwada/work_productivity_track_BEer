@@ -93,7 +93,10 @@ module.exports = {
 
                     // Update tak count in folder model
                     req.body.taskCountFactor = 1;
-                    folderService.editFolder(req.body);
+                    folderService.editFolder(req.body, (err, editFolderResponse) => {
+                        console.log('INFO ::: inside editFolder in addTaskInFolder with info: code', editFolderResponse.code +
+                        '. status: ' + editFolderResponse.status);
+                    });
 
                     res.status(addTaskInFolderResponse.code).send(addTaskInFolderResponse);
                 } else {
@@ -118,8 +121,11 @@ module.exports = {
                 } else if (removeTaskFromFolderResponse.code === 200 && removeTaskFromFolderResponse.status === 'success') {
 
                     // Update tak count in folder model
-                    req.body.taskCountFactor = 1;
-                    folderService.editFolder(req.body);
+                    req.body.taskCountFactor = -1;
+                    folderService.editFolder(req.body, (err, editFolderResponse) => {
+                        console.log('INFO ::: inside editFolder in removeTaskFromFolder with info: code', editFolderResponse.code +
+                            '. status: ' + editFolderResponse.status);
+                    });
 
                     res.status(removeTaskFromFolderResponse.code).send(removeTaskFromFolderResponse);
                 } else {

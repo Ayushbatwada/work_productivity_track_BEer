@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const UserSchema = require('../userModel');
+const taskConfig = require('./config.json');
 
 const taskSchema = new mongoose.Schema({
     name: {
@@ -12,7 +13,7 @@ const taskSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['project', 'reading', 'dsa', 'system design', 'reminder'],
+        enum: taskConfig.taskTypes.values,
         required: true
     },
     folderId: {
@@ -20,8 +21,8 @@ const taskSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'created',
-        enum: ['created', 'active', 'completed', 'paused', 'inactive']
+        default: taskConfig.status.active,
+        enum: taskConfig.status.values
     },
     createdBy: {
         type: UserSchema,

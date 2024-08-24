@@ -6,8 +6,8 @@ const folderController = require('./controller');
 router.post('/create', folderController.createFolder);
 router.get('/get/all', folderController.getAllFolders);
 router.put('/delete', folderController.changeFolderStatus);
-router.get('/folder/task/get/all', folderController.getFolderAssociatedTasks);
-router.put('/folder/task/add', folderController.addTaskInFolder);
-router.put('/folder/task/remove', folderController.removeTaskFromFolder);
+router.get('/task/get/all', folderController.getFolderAssociatedTasks);
+router.put('/task/add', folderController.addTaskInFolder);
+router.put('/task/remove', folderController.removeTaskFromFolder);
 
 module.exports = router;
