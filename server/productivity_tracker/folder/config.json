@@ -1,13 +1,21 @@
 {
   "status": {
     "active": "active",
-    "inactive": "inactive",
+    "deleted": "deleted",
     "values": [
-      "active", "inactive"
+      "active", "deleted"
     ]
   },
   "folderCategories": {
-    "tech": "tech",
-    "values": []
+    "design": "design",
+    "frontend": "frontend",
+    "backend": "backend",
+    "reading": "reading",
+    "writing": "writing",
+    "project": "project",
+    "video": "video",
+    "audio": "audio",
+    "image": "image",
+    "values": ["design", "frontend", "backend", "reading", "writing", "project", "video", "audio", "image"]
   }
 }

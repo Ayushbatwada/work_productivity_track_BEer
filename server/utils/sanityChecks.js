@@ -44,5 +44,9 @@ module.exports = {
 
     isValidObjectArray(objectArray) {
         return Array.isArray(objectArray) && objectArray.length > 0 && this.isValidObject(objectArray[0]);
+    },
+
+    isValidMongooseId(id) {
+        return !(!id || !mongoose.isValidObjectId(id));
     }
 }

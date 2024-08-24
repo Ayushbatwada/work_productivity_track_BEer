@@ -1,0 +1,17 @@
+{
+  "status": {
+    "active": "active",
+    "paused": "paused",
+    "completed": "completed",
+    "deleted": "deleted",
+    "values": ["active", "paused", "completed", "deleted"]
+  },
+
+  "taskTypes": {
+    "project": "project",
+    "reading": "reading",
+    "dsa": "dsa",
+    "system design": "system design",
+    "values": ["project", "reading", "dsa", "system design"]
+  }
+}

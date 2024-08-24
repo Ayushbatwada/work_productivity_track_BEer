@@ -1,6 +1,9 @@
+'use strict'
+
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const folderConfig = require('./config.json');
+const UerSchema = require('../userModel');
 
 const folderSchema = new mongoose.Schema({
     name: {
@@ -25,11 +28,11 @@ const folderSchema = new mongoose.Schema({
         enum: folderConfig.status.values
     },
     createdBy: {
-        type: Object,
+        type: UerSchema,
         required: true
     },
     updatedBy: {
-        type: Object
+        type: UerSchema
     }
 },{
     timestamps: true

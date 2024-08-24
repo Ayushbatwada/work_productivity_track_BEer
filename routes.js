@@ -7,5 +7,8 @@ const dailyUpdatesRouter = require('./server/productivity_tracker/dailyUpdates/r
 module.exports = (app) => {
     app.use('/healthCheck', healthCheck);
 
-    app.use('v1/api/productivity/tracker', folderRouter);
+    app.use('/v1/api/folder', folderRouter);
+    app.use('/v1/api/task', taskRouter);
+    app.use('/v1/api/target', targetRouter);
+    app.use('/v1/api/daily/updates', dailyUpdatesRouter);
 }

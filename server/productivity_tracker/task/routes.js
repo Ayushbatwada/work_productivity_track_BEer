@@ -1,10 +1,12 @@
+'use strict'
+
 const express = require('express');
 const router = express.Router();
 const taskController = require('./controller');
+const folderController = require("../folder/controller");
 
-router.post('/task/create', taskController.createTask);
-router.get('/task/get/all', taskController.getAllTasks);
-router.put('/task/edit', taskController.editTask);
-router.put('/task/status/change', taskController.changeTaskStatus);
+router.post('/create', taskController.createTask);
+router.get('/get/all', taskController.getAllTasks);
+router.put('/status/change', taskController.changeTaskStatus);
 
 module.exports = router;

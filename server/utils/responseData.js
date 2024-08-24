@@ -39,4 +39,11 @@ module.exports = {
     successMessage: responseForSuccessMessage,
     genericFailureError: responseForGenericFailureError,
     unauthorisedUserResponse: responseForUnauthorisedUserError,
+    customLabels : {
+        totalDocs: 'total',
+        docs: 'data',
+        limit: 'limit',
+        page: 'page',
+        totalPages: 'pages'
+    }
 }

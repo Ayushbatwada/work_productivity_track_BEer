@@ -1,9 +1,14 @@
-const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate-v2");
+'use strict'
+
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+const targetConfig = require('./config.json');
+const UserSchema = require('../userModel');
 
 const targetSchema = new mongoose.Schema({
     description: {
-        type: String
+        type: String,
+        required: true
     },
     associatedTaskIds: {
         type: [mongoose.Schema.Types.ObjectId]
@@ -21,14 +26,15 @@ const targetSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'assigned',
-        enum: ['assigned', 'active', 'completed', 'paused', 'deleted', 'delayed']
+        default: targetConfig.status.assigned,
+        enum: targetConfig.status.values
     },
     createdBy: {
-        type: Object
+        type: UserSchema,
+        required: true
     },
     updatedBy: {
-        type: Object
+        type: UserSchema
     }
 },{
     timestamps: true

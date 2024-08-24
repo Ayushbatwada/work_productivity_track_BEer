@@ -1,26 +1,23 @@
+'use strict'
+
 const targetService = require('./service');
 const responseData = require('../../utils/responseData');
-const sanityChecks  = require('../../utils/sanityChecks');
 
 module.exports = {
     createTarget: (req, res) => {
         let response;
         try {
-            targetService.createTarget(req, (err, resp) => {
+            targetService.createTarget(req.body, (err, createTargetResponse) => {
                 if (err) {
-                    console.log('ERROR ::: found inside createTarget controller with err: ' + err);
+                    console.log('ERROR ::: found inside "createTarget" controller error block with err: ' + err);
                     response = new responseData.serverError();
                     res.status(response.code).send(response);
-                } else if (resp.code === 200 && sanityChecks.isValidObject(resp.data)) {
-                    response = new responseData.successMessage();
-                    res.status(response.code).send(response);
                 } else {
-                    console.log('ERROR ::: found inside createTarget controller with err: ' + err);
-                    res.status(resp.code).send(resp);
+                    res.status(createTargetResponse.code).send(createTargetResponse);
                 }
             });
         } catch(err) {
-            console.log('ERROR ::: found inside catch block of createTarget controller with err: ' + err);
+            console.log('ERROR ::: found inside "createTarget" controller catch block with err: ' + err);
             response = new responseData.serverError();
             res.status(response.code).send(response);
 
@@ -30,53 +27,36 @@ module.exports = {
     getAllTargets: (req, res) => {
         let response;
         try {
-            targetService.getAllTargets(req, (err, resp) => {
+            targetService.getAllTargets(req, (err, getAllTargetsResponse) => {
                 if (err) {
-                    console.log('ERROR ::: found inside getAllTargets controller with err: ' + err);
+                    console.log('ERROR ::: found inside "getAllTargets" controller error block with err: ' + err);
                     response = new responseData.serverError();
                     res.status(response.code).send(response);
-                } else if (resp.code === 200 && sanityChecks.isValidArray(resp.data)) {
-                    res.status(resp.code).send(resp);
-                } else if (resp.code === 200 && !sanityChecks.isValidArray(resp.data)) {
-                    response = new responseData.notFoundError();
-                    res.status(response.code).send(response);
                 } else {
-                    console.log('ERROR ::: found inside getAllTargets controller with err: ' + err);
-                    res.status(resp.code).send(resp);
+                    res.status(getAllTargetsResponse.code).send(getAllTargetsResponse);
                 }
             });
         } catch(err) {
-            console.log('ERROR ::: found inside catch block of getAllTargets controller with err: ' + err);
+            console.log('ERROR ::: found inside "getAllTargets" controller catch block with err: ' + err);
             response = new responseData.serverError();
             res.status(response.code).send(response);
         }
     },
 
-    editTarget: (req, res) => {
-
-    },
-
     changeTargetStatus: (req, res) => {
         let response;
         try {
-            targetService.changeTargetStatus(req, (err, resp) => {
+            targetService.changeTargetStatus(req.body, (err, changeTargetStatusResponse) => {
                 if (err) {
-                    console.log('ERROR ::: found inside changeTargetStatus controller with err: ' + err);
+                    console.log('ERROR ::: found inside "changeTargetStatus" controller error block with err: ' + err);
                     response = new responseData.serverError();
                     res.status(response.code).send(response);
-                } else if (resp.code === 200 && sanityChecks.isValidObject(resp.data)) {
-                    response = new responseData.successMessage();
-                    res.status(response.code).send(response);
-                } else if (resp.code === 200 && !sanityChecks.isValidObject(resp.data)) {
-                    response = new responseData.notFoundError();
-                    res.status(response.code).send(response);
                 } else {
-                    console.log('ERROR ::: found inside changeTargetStatus controller with err: ' + err);
-                    res.status(resp.code).send(resp);
+                    res.status(changeTargetStatusResponse.code).send(changeTargetStatusResponse);
                 }
             });
         } catch(err) {
-            console.log('ERROR ::: found inside catch block of changeTargetStatus controller with err: ' + err);
+            console.log('ERROR ::: found inside "changeTargetStatus" controller catch block with err: ' + err);
             response = new responseData.serverError();
             res.status(response.code).send(response);
         }
